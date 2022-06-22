@@ -3,27 +3,25 @@ let hoursItem = document.querySelector("#hours");
 let minItem = document.querySelector("#min");
 let secItem = document.querySelector("#sec");
 
+let countDown = () => {
+  let futureDate = new Date("31 December 2022");
+  let currentDate = new Date();
+  let myDate = futureDate - currentDate;
+  // console.log(myDate);
+  let days = Math.floor(myDate / 1000 / 60 / 60 / 24);
 
-let countDown =() =>{
-    let futureDate= new Date("2 April 2022");
-    let currentDate =new Date();
-    let myDate = futureDate-currentDate;
-    // console.log(myDate);
-    let days=Math.floor(myDate/1000/60/60/24);
+  let hours = Math.floor(myDate / 1000 / 60 / 60) % 24;
 
-    let hours=Math.floor(myDate/1000/60/60)%24;
-    
-    let min=Math.floor(myDate/1000/60)%60;
+  let min = Math.floor(myDate / 1000 / 60) % 60;
 
-    let sec=Math.floor(myDate/1000)%60;
-    daysItem.innerHTML=days;
-    hoursItem.innerHTML=hours;
-    minItem.innerHTML=min;
-    secItem.innerHTML=sec;
+  let sec = Math.floor(myDate / 1000) % 60;
+  daysItem.innerHTML = days;
+  hoursItem.innerHTML = hours;
+  minItem.innerHTML = min;
+  secItem.innerHTML = sec;
+};
 
-}
+countDown();
 
-countDown()
-
-setInterval(countDown,1000)
+setInterval(countDown, 1000);
 // to move on other sites
